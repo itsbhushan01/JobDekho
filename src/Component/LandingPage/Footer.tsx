@@ -8,7 +8,7 @@ function Footer() {
       <div className="w-1/4 flex flex-col gap-4">
         <div className="flex gap-1 items-center text-[#03C988]">
             <IconAnchor className="h-6 w-6" stroke={2.5}/>
-            <div className="text-xl font-semibold">JobHook</div>
+            <div className="text-xl font-semibold">JobDekho</div>
         </div>
         <div className="text-sm text-[#b1b1b1]">Job portal with user profiles, skill update, certification, work experience and admin job posting.</div>
         <div className="flex gap-3 text-[#03C988]">

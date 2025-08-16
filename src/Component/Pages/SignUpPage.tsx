@@ -11,7 +11,7 @@ function SignUpPage() {
         <div className={`w-1/2 h-full transition-all ease-in-out duration-1000 ${location.pathname=="/signup"?"rounded-r-[200px]":"rounded-l-[200px]"} bg-[#0d0d0d] flex items-center gap-5 justify-center flex-col`}>
             <div className="flex gap-2 items-center ">
                 <IconAnchor className="h-16 w-16 text-[#03C988]" stroke={2}/>
-                <div className="text-6xl font-semibold text-[#03C988]">JobHook</div>
+                <div className="text-6xl font-semibold text-[#03C988]">JobDekho</div>
             </div>
             <div className="text-2xl text-[#d1d1d1] font-semibold">Find the made for you</div>
         </div>
