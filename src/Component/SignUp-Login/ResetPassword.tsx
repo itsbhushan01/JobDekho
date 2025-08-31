@@ -1,4 +1,4 @@
-import { Button, Modal, PasswordInput, PinInput, TextInput } from '@mantine/core'
+import { Button, Modal,LoadingOverlay, PasswordInput, PinInput, TextInput } from '@mantine/core'
 import { IconAt, IconCheck, IconLock } from '@tabler/icons-react';
 import React, { useState } from 'react'
 import { changePassword, sendOtp, verifyOtp } from '../Services/UserService';
@@ -12,6 +12,7 @@ function ResetPassword(props) {
   const [otpSending,setOtpSending]=useState(false)
   const [verified,setVerified]=useState(false)
   const [passErr,setPassErr]=useState("")
+  const [loader,setLoader]=useState(false)
   const [password,setPassword]=useState("");
   const [resendLoader,setResendLoader]=useState(false);
   const handleSubmit=()=>{
@@ -52,7 +53,7 @@ function ResetPassword(props) {
           message:"Enter New Password",
           withCloseButton:true,
           icon:<IconCheck style={{width:"90%",height:"90%"}}/>,
-          color:"red",
+          color:"teal",
           withBorder:true,
           className:"!border-green-500"
         }) ;
@@ -61,7 +62,7 @@ function ResetPassword(props) {
         console.log(err)
         notifications.show({
           title:'OTP Verification Fialed',
-          message:err.response.data.errorMessage,
+          message:"Error",
           withCloseButton:true,
           icon:<IconCheck style={{width:"90%",height:"90%"}}/>,
           color:"red",
@@ -78,8 +79,10 @@ function ResetPassword(props) {
   }
 
   const handleResetPassword=()=>{
-    axios.put("http://localhost:8080/users/changePass",{email,password}).then((res)=>{
+	setLoader(true)
+    axios.post("http://localhost:8080/users/changePass",{email,password}).then((res)=>{
       console.log(res);
+	  setLoader(false)
       notifications.show({
           title:'Password Changed.',
           message:"Login with new Password",
@@ -90,9 +93,10 @@ function ResetPassword(props) {
           className:"!border-green-500"
         });
     }).catch((err)=>{
+		setLoader(false)
       notifications.show({
           title:'Password Change Failed',
-          message:err.response.data.errorMessage,
+          message:"Error",
           withCloseButton:true,
           icon:<IconCheck style={{width:"90%",height:"90%"}}/>,
           color:"red",
@@ -106,6 +110,13 @@ function ResetPassword(props) {
       setOtpSent(false);
   }
   return (
+  <>
+	<LoadingOverlay 
+    visible={loader}
+    zIndex={1000}
+    overlayProps={{radius:'sm',blur:2}}
+    loaderProps={{color:'sun.4',type:"bars"}}
+    />
     <Modal opened={props.opened} onClose={props.close} title="Reset Password">
       <div className='flex flex-col gap-6'>
         <TextInput 
@@ -144,6 +155,7 @@ function ResetPassword(props) {
         }
       </div>
     </Modal>
+	</>
   )
 }
 

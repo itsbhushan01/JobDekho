@@ -73,7 +73,7 @@ function TalentCard(props:any) {
          <div className='flex justify-between'  >
            <div className='flex gap-2 items-center'>
                <div className='p-2 bg-[#1c1c1c]  rounded-full'>
-                   <Avatar size="lg" src={`/public/JobPortalResources/Icons/${profile.company}.png`} alt="its me" />
+                   <Avatar size="lg" src={`/public/JobPortalResources/Icons/abc.png`} alt="its me" />
                </div>
                <div>
                    <div className='font-semibold text-lg'>{profile?.name}</div>

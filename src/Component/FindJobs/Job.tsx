@@ -33,16 +33,16 @@ function Job() {
           setFilteredJobs(filtered);
           
           if(filter["Job Title"] && filter["Job Title"].length>0){
-            filtered=filtered.filter((talent:any)=>filter["Job Title"].some((title:any)=>talent.jobTitle.toLowerCase().includes(title.toLowerCase())));
+            filtered=filtered.filter((talent:any)=>filter["Job Title"].some((title:any)=>talent.jobTitle?.toLowerCase().includes(title?.toLowerCase())));
           }
           if(filter.Location && filter.Location.length>0){
-            filtered=filtered.filter((talent:any)=>filter.Location?.some((title:any)=>talent.location.toLowerCase().includes(title.toLowerCase())));
+            filtered=filtered.filter((talent:any)=>filter.Location?.some((title:any)=>talent.location?.toLowerCase().includes(title?.toLowerCase())));
           }
           if(filter.Experience && filter.Experience.length>0){
-            filtered=filtered.filter((talent:any)=>filter.Experience?.some((title:any)=>talent.experience?.toLowerCase().includes(title.toLowerCase())));
+            filtered=filtered.filter((talent:any)=>filter.Experience?.some((title:any)=>talent.experience?.toLowerCase().includes(title?.toLowerCase())));
           }
            if(filter["Job Type"] && filter["Job Type"].length>0){
-            filtered=filtered.filter((talent:any)=>filter["Job Type"].some((title:any)=>talent.jobType.toLowerCase().includes(title.toLowerCase())));
+            filtered=filtered.filter((talent:any)=>filter["Job Type"].some((title:any)=>talent.jobType?.toLowerCase().includes(title?.toLowerCase())));
           }
           if(filter.salary&&filter.salary.length>0){
           filtered=filtered.filter((talent:any)=>filter.salary[0]<=talent.packageOffered&&talent.packageOffered<=filter.salary[1])

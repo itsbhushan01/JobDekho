@@ -44,7 +44,7 @@ function ExpInput(props:any) {
         }    
          else exp[props.index]=form.getValues();
          {
-          exp[props.index]=form.getValues();
+           exp[props.index]=form.getValues();
            exp[props.index].startDate=exp[props.index].startDate?.toISOString();
            exp[props.index].endDate=exp[props.index].endDate?.toISOString();
          }
